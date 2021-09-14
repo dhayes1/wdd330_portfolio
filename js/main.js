@@ -13,5 +13,5 @@ function CreateList() {
     var listItem = document.createElement("li");
     listItem.innerText  = arrIndex.label;
     listItem.setAttribute('href', arrIndex.url);
-    oList.appendChild(listItem);
+    document.body.oList.createElement(listItem);
 }
