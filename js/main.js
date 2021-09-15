@@ -1,17 +1,12 @@
-const arrIndex = [
-    {
-        label: "Week 1 Notes",
-        url: "weeko1/index.html"
-    }    
-];
+// create table of contents list array
+const data = ["Ram", "Dodge", "Ford"];
 
-var oList = document.getElementsByTagName("ol");
+// get the contents list tag
+let ol = document.getElementById('content-list');
 
-arrIndex.forEach(CreateList);
-
-function CreateList() {
-    var listItem = document.createElement("li");
-    listItem.innerText  = arrIndex.label;
-    listItem.setAttribute('href', arrIndex.url);
-    document.body.oList.createElement(listItem);
-}
+// create a list item for each item in the contents list arry
+data.forEach((item) => {
+    let li = document.createElement("li");   //create list element
+    li.innerText - item;
+    ol.appendChild(li);
+});
