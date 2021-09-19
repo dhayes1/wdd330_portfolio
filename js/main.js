@@ -2,13 +2,13 @@
 const data = [
     {
       label: "Week 01",
-      url: "week01/"
+      url: "week01/index.html"
     },
     // must include new objects in curly brackets
-    {                       
+    /*{                       
       label: "Week 02",
       url: "week02/"
-     }
+     }*/
   ];
   
   // get ol tag for list (must be loaded or will cause errors)
