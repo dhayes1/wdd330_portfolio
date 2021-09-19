@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <link type="text/css" rel="stylesheet" href="../../css/notes.css" />
+        <title>localStorage Notes</title>
+    </head>
+
+    <body>
+        <div id="content">
+            <h1>localStorage</h1>
+            <section id="summary">
+                <p id="notes">localStorage is a javascript object that stores data with no experation date. Data will not be deleted even if the browser is closed. Data is stored in key/value pairs on the user's computer. As an HTML5 specification, localStorage is supported by major browsers - including IE8. Limitations include no data protection, data can be accessed by any code on the web page, limited to 5MB across all major browsers, data is only stored on the browser (not a substitue for a server based database), and localStorage is synchronous. Sensitive user information should never be stored in localStorage.</p>
+                <p>Methods include:
+                    <ul>
+                        <li>setItem(): Add key and value</li>
+                        <li>getItem(): Retrieve item from localStorage by key</li>
+                        <li>removeItem(): Delete item from localStorage by key</li>
+                        <li>clear(): Clear all items from loacalStorage</li>
+                        <li>key(): Passed a number to retrieve the key of a localStorage</li>
+                    </ul>
+                </p>
+            </section>
+            <section id="references">
+                <h3>References:</h3>
+                <ul>
+                    <li><a href="https://blog.logrocket.com/localstorage-javascript-complete-guide/">Logrocket</a></li>
+                    <li><a href="https://www.w3schools.com/jsref/prop_win_localstorage.asp">W3 Schools</a></li>
+                </ul>
+            </section>
+        </div>
+    </body>
+</html>
