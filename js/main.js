@@ -6,8 +6,7 @@ const data = [
     },
     // must include new objects in curly brackets
     /*{                       
-      label: "Week 02",
-      url: "week02/"
+      
      }*/
   ];
   
