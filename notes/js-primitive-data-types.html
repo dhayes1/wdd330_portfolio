@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <link type="text/css" rel="stylesheet" href="../../css/notes.css" />
+        <title>Commenting Notes</title>
+        <style>
+            #references {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <header>
+        <a class="crumbs" href="../index.html">Home</a> > <a class="crumbs" href="../week02/index.html">Week 02></a>
+        <h1>Notes</h1>
+    </header>
+
+    <body>
+        <div id="content">
+            <h2>JavaSript Primitive Data Types</h2>
+            <section id="summary">
+                <p id="notes">JavaScript contains 6 primitive data types. These data type are immutable, meaning they cannot be changed. An object is not a primitive data type.</p>
+                <h3>Primitive Data Types:</h3>
+                    <ul>
+                        <li><a href="#string">String</a></li>
+                        <li><a href="#symbol">Symbol</a></li>
+                        <li><a href="#number">Number</a></li>
+                        <li><a href="#boolean">Boolean</a></li>
+                        <li><a href="#undefined">Undefined</a></li>
+                        <li><a href="#null">Null</a></li>
+                    </ul>
+                </p>
+            </section>
+
+            <section id="string">
+                <h2>String</h2>
+            
+                <p id="notes">Strings are a collection of characters within quote marks.</p>
+                <section class="example">
+                    <h4>Example:</h4>
+                    <p><code>'this is a string'</code></p>
+                </section>
+
+                <section>
+                    <h3>Properties:</h3>
+                    <ul>
+                        <li><b>.length</b> - returns: number - number of characters, including whitespace, in string </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Methods:</h3>
+                    <ul>
+                        <li><b>.toUpper()</b> - input: none; returns: string - makes the string characters UPPERCASE</li>
+                        <li><b>.toLower()</b> - input: none; returns: sting - makes the string characters lowercase</li>
+                        <li><b>.charAt()</b> - input: number; returns: string - the character or characters located at the index</li>
+                        <li><b>.indexOf()</b> - input: string; returns: number - the index of the string, -1 means that string not found; case-sensitive</li>
+                        <li><b>.lastIndexOf()</b> - input: string; returns: number - the index of the last occurrence of character(s); case-sensitive</li>
+                        <li><b>.includes()</b> - input: string; returns: boolean - true means string was found, false means string not found; case-sensitive</li>
+                        <li><b>.startsWith()</b> - input: string; returns: boolean - true if string starts with character or characters, false if not; case sensitive</li>
+                        <li><b>.endsWith()</b> - input string; returns: boolean - true if string ends with character or characters, false if not; case-sensitive</li>
+                        <li><b>concat()</b> - input: none; returns: string - combines two or more strings; using the + operator is a shortcut</li>
+                        <li><b>trim()</b> - input: none; returns: string - removes any whitespace from string</li>
+                        <li><b>repeat()</b> - input: number; returns: string - repeats string the stated number of times (input) resulting is a concatenated string</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Functions:</h3>
+                    <ul>
+                        <li><b>String()</b> - input: number; returns: string - changes number data type to string data type</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Escape Characters:</h3>
+                    <ul>
+                        <li>\' = Single quote marks</li>
+                        <li>\" = Double quote marks</li>
+                        <li>\n = End of line</li>
+                        <li>\r = Carrage return</li>
+                        <li>\t = Tab</li>
+                        <li>\\ = Backslash</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Template Literals:</h3>
+                    <p>Special type of string declared using the backtick character (`). This form of string is considered a super-powered string. It behaves like a normal string, but it has the extra power of string interpolation. It is not uncommon to see code with all strings created as template literals.</p>
+                    <ul>
+                        <li>Able to use both type sof quote marks without using escape characters</li>
+                        <li>Allows interpolation of JavaScript code </li>
+                        <li>\n = End of line</li>
+                        <li>\r = Carrage return</li>
+                        <li>\t = Tab</li>
+                        <li>\\ = Backslash</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section id="symbol">
+                <h2>Symbol</h2>
+            
+                <p id="notes">Not completly sure on how these are intended to be used.</p>
+                <section class="example">
+                    <h4>Example:</h4>
+                    <p><code>const dollar = Symbol('this is for dollars')</code></p>
+                </section>  
+            </section>
+
+            <section id="references">
+                <h3>References:</h3>
+                <ul>
+                    <li><a href="https://javascript.info/comments">javascript.info</a></li>
+                    <li><a href="http://www.tizag.com/javascriptT/javascriptcomment.php">tizag.com</a></li>
+                    <li><a href="https://www.w3schools.com/js/js_comments.asp">W3 Schools</a></li>
+                </ul>
+            </section>
+        </div>
+    </body>
+</html>

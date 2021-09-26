@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <title>Week 02 Team Activity</title>
+        <script>
+            /***********************************************
+             * Adds two numbers
+             * inputs: number, number
+             * return: number
+             ***********************************************/
+            function Add(a,b) {
+                return a + b;
+            }
+    
+            /***********************************************
+             * Subtracts two numbers
+             * inputs: number, number
+             * return: number
+             ***********************************************/
+            function Subtract(a, b) {
+                return a - b;
+            }
+    
+            /***********************************************
+             * Muliplies two numbers
+             * inputs: number, number
+             * return: number
+             ***********************************************/
+            function Multiply(a, b) {
+                return a * b;
+            }
+    
+            /***********************************************
+             * Divides two numbers
+             * inputs: number, number
+             * return: number
+             ***********************************************/
+            function Divide(a, b) {
+                return a / b;
+            }
+    
+            function req1(){
+                // get user input
+                const input = document.getElementById('req1Input');
+                
+                // display user input
+                document.getElementById('req1Out').innerHTML = input.value;
+            }
+    
+            function req2() {
+                let input = document.getElementById('req2Input');
+                let total = 0;
+
+                for(let i = 0; i <= input.value; i++) {
+                    total = Add(i, total);
+                }
+    
+                document.getElementById('req2Out').innerHTML = total;
+            }
+    
+            function req3(operation) {
+                let inputA = document.getElementById('req3InA');
+                let inputB = document.getElementById('req3InB');
+
+                let output = operation(a.value,b.vaule);
+                
+                document.getElementById('req3Out').innerHTML = output;
+            }
+        </script>
+    </head>
+
+    <body>
+        <h2>Week 02 Team Assignment</h2>
+        
+        <!----  Requirement 1  ---->
+        <section class="problem_set" id="req1">
+            <h2>Requirement 1</h2>
+            <input id="req1Input" placeholder="enter text" type="text">
+            <button id="req1Button" onclick="req1()">Enter</button>
+            <div id="req1Out"></div> 
+        </section>
+
+        <!----  Requirement 2  ---->
+        <section class="problem_set" id="req2">    
+            <h2>Requirement 2</h2>
+            <input id="req2Input" placeholder="enter a number" type="number">
+            <button id="req2Button" onclick="req2()">Sum</button>
+            <div id="req2Out"></div>
+        </section>
+
+        <!----  Requirement 3  ---->
+        <section class="problem_set" id="req3"> 
+            <h2>Requirement 3</h2>
+            <input id="req3InA" placeholder="enter a number" type="number">
+            <input id="req3InB" placeholder="enter a number" type="number">
+            <button id="req3ButtonAdd" onclick="req3(Add)">+</button>
+            <button id="req3ButtonSub" onclick="req3(Subtract)">-</button>
+            <button id="req3ButtonMult" onclick="req3(Multiply)">*</button>
+            <button id="req3ButtonDiv" onclick="req3(Divide)">/</button>
+            <div id="req3Out"></div>
+        </section>      
+    </body>
+</html>
