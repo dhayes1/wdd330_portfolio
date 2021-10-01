@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <title>Roll the Dice</title>
+        <script type="text/javascript">
+            function rollDice() {
+                // get the number of dice sides
+                const diceSides = document.getElementById("dice").value;
+
+                // roll the dice
+                const roll = Math.floor(Math.abs((parseInt(diceSides) * Math.random())) + 1);
+
+                // display roll
+                document.getElementById('result').innerHTML = roll;
+            }
+        </script>
+    </head>
+
+    <body>
+        <div>
+            <h3>Number of Side on Die</h3>
+            <input id="dice" placeholder="Enter number" type="number">
+            <button onclick="rollDice()">Roll Dice</button>
+        </div>
+
+        <section>
+            <p>You rolled: </p>
+            <div id="result">
+                Result of rolled dice
+            </div>
+        </section>
+
+    </body>
+</head>
