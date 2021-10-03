@@ -8,6 +8,10 @@ const data = [
       label: "Week 02",
       url: "week02/index.html"
     },
+    {
+      label: "Week 03",
+      url: "week03/index.html"
+    }
     // must include new objects in curly brackets
     /*{                       
       
