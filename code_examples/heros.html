@@ -1,20 +1,235 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <title>Justice League</title>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>Justice League</title>
+    </head>
 
-<body>
-    <header>
-        <h1 id='title'>Justice League</h1>
-    </header>
-    <ul id='roster'>
-        <li class='hero'>Superman</li>
-        <li class='vigilante hero' id='bats'>Batman</li>
-        <li class='hero'>Wonder Woman</li>
-    </ul>
-</body>
+    <body>
+        <header>
+            <h1 id='title'>Justice League</h1>
+        </header>
+        <ul id='roster'>
+            <li class='hero'>Superman</li>
+            <li class='vigilante hero' id='bats'>Batman</li>
+            <li class='hero'>Wonder Woman</li>
+        </ul>
+        <div>
+            <p>Pssssst. Have a look at the Console!</p>
+        </div>
+    </body>
+h h
+    <script type="text/javascript">
+        // get body element example
+        const body = document.body;
+        console.log('const body = document.body;');
+        console.log('typeof body;');
+        console.log(typeof body);
 
+        // get node type example
+        console.log('body.nodeType;');
+        console.log(body.nodeType);
+
+        // get node name example
+        console.log('body.nodeName;');
+        console.log(body.nodeName);
+
+        // get element by ID example
+        console.log("const h1 = document.getElementById('title');");
+        const h1 = document.getElementById('title');        
+    
+        // get elements by tag name
+        const listItems = document.getElementsByTagName('li');
+        console.log("const listItems = document.getElementsByTagName('li');");
+
+        // list individuals in the node list
+        console.log('listItems[0]');
+        console.log(listItems[0]);
+        console.log('listItems[1]');
+        console.log(listItems[1]);
+        console.log('listItems[2]');
+        console.log(listItems[2]);
+
+        // get elements by class name
+        const heros = document.getElementsByClassName('hero');
+        console.log("const heros = document.getElementsByClassName('hero');");
+
+        // list the number of heros in node list
+        console.log('heros.length;');
+        console.log(heros.length);
+
+        // get elements using querySelector
+        // querySelector can be used instead of .getElementById
+        // querySelector uses CSS selectors
+        console.log("document.querySelector('#bats');");
+        console.log(document.querySelector('#bats'));
+
+        // get elements using querySelectorAll
+        // querySelectorAll can be used instead of .getElementByClassName
+        // querySelectorAll uses CSS selectors
+        console.log("document.querySelectorAll('.hero');");
+        const Nodes = document.querySelectorAll('.hero');
+
+        // list individuals in the node list
+        console.log('Nodes[0]');
+        console.log(Nodes[0]);
+        console.log('Nodes[1]');
+        console.log(Nodes[1]);
+
+        // get the last list item using CSS pseudo-selectors
+        console.log("let wonderWoman = document.querySelector('li:last-child');");
+        let wonderWoman = document.querySelector('li:last-child');
+        console.log(wonderWoman);
+
+        // get ul element using querySelector
+        console.log("const ul = document.querySelector('ul#roster');");
+        const ul = document.querySelector('ul#roster');
+        console.log(ul);
+
+        // get the li w/ the id bats using the previous querySelector
+        console.log("const batman = ul.querySelector('li#bats');");
+        const batman = ul.querySelector('li#bats');
+        console.log(batman);
+
+        // explore the child nodes of the element w/ an ID attribute of roster
+        // will return any text nodes and whitespace as empty text nodes
+        console.log("const heroes = document.getElementById('roster');");
+        const heroes = document.getElementById('roster');
+        console.log('heroes.childNodes;');
+        console.log(heroes.childNodes);
+
+        // get the children property returns any element that are children of that node
+        // ignores any text nodes
+        console.log('heroes.children;');
+        console.log(heroes.children);
+
+        // list the number of children in the node list
+        console.log('heroes.children.length;');
+        console.log(heroes.children.length);
+
+        // return the firstchild in the node list
+        console.log('heroes.firstChild;');
+        console.log(heroes.firstChild);
+
+        // return the last child in the node list
+        console.log('heroes.lastChild;');
+        console.log(heroes.lastChild);
+
+        // return the parent node
+        // parentNode property returns the parent node of an element
+        console.log("wonderWoman = document.querySelector('ul#roster li:last-child');");
+        wonderWoman = document.querySelector('ul#roster li:last-child');
+        console.log('wonderWoman.parentNode;');
+        console.log(wonderWoman.parentNode);
+
+        // return the nextSibling node
+        // nextSibling property returns the next adjacent node of the same parent
+        // will return null if the node is the last child of that parent
+        console.log('wonderWoman.nextSibling;');
+        console.log(wonderWoman.nextSibling);
+
+        // previousSibling property returns the previous adjacent node
+        // will return null if node is the first child of that parent
+        console.log('wonderWoman.previousSibling;');
+        console.log(wonderWoman.previousSibling);
+
+        // get the text contianed in a text node
+        // .nodeValue will return the text containted inside a node
+        console.log("const textNode = wonderWoman.firstChild;");
+        const textNode = wonderWoman.firstChild;
+        console.log("textNode.nodeValue;");
+        console.log(textNode.nodeValue);
+
+        // get the text contained in a text not using textContent
+        // .textContent will return the text content of an element as a string
+        console.log('wonderWoman.textContent;');
+        console.log(wonderWoman.textContent);
+
+        // DOM getters and setters
+        // .getAttribute returns the value of the attribute provided as an agrument
+        console.log("wonderWoman.getAttribute('class');");
+        console.log(wonderWoman.getAttribute('class'));
+
+        // returns null is element doesn't have the given attribute
+        console.log("wonderWoman.getAttribute('src');");
+        console.log(wonderWoman.getAttribute('src'));
+
+        // .setAttribute changes the value of an element's attribute
+        // takes 2 arguments; the attribute to change and the new value
+        console.log("wonderWoman.setAttribute('class', 'villian');");
+        console.log(wonderWoman.setAttribute('class', 'villian'));
+        console.log("wonderWoman.getAttribute('class');");
+        console.log(wonderWoman.getAttribute('class'));
+
+        // .setAttribute can also be used to add an attribute, that doesn't already exist, to an element
+        console.log("wonderWoman.getAttribute('id')");
+        console.log(wonderWoman.getAttribute('id'));
+        console.log("wonderWoman.setAttribute('id','amazon');");
+        console.log(wonderWoman.setAttribute('id','amazon'));
+        console.log("wonderWoman.getAttribute('id');");
+        console.log(wonderWoman.getAttribute('id'));
+
+        // setting and getting and attribute and be done using dot notation as well
+        // class is a reserved word; className must be used to get and set the class attribute of an element
+        // the className property will overwrite all other classes that have already been set on the element
+        console.log("wonderWoman.id;");
+        console.log(wonderWoman.id);
+        console.log("wonderWoman.className;");
+        console.log(wonderWoman.className);
+        console.log("wonderWoman.className = 'hero';")
+        console.log(wonderWoman.className = 'hero');
+        console.log("wonderWoman.calssName;");
+        console.log(wonderWoman.className);
+
+        // classList grants access to the a list of all the classes an element has
+        // a number of methods make it easier to modigythe class of an element
+        // .add can be used to add a class to an element w/o overwriting any classes that already exist
+        console.log("wonderWoman.classList.add('warrior');");
+        console.log(wonderWoman.classList.add('warrior'));
+        console.log("wonderWoman.className;");
+        console.log(wonderWoman.className);
+
+        // .remove will remove a specific class from an element
+        console.log("wonderWoman.classList.remove('warrior')");
+        console.log(wonderWoman.classList.remove('warrior'));
+        console.log("wonderWoman.className;");
+        console.log(wonderWoman.className);
+
+        // .toggle will add a class if an element doesn't have it
+        // it will remove a class if an element has it already
+        // returns true if class was added; false if removed
+        console.log("wonderWoman.classList.toggle('hero');");
+        console.log(wonderWoman.classList.toggle('hero'));
+        console.log(wonderWoman.className);
+        console.log("'hero' was removed");
+        console.log("wonderWoman.classList.toggle('hero');");
+        console.log(wonderWoman.classList.toggle('hero'));
+        console.log(wonderWoman.className);
+        console.log("'hero' was added");
+
+        // .contains method checks to see if an element has a particular class
+        // returns true if class exists in element; false if class does not exist
+        console.log("wonderWoman.classList.contains('hero');");
+        console.log(wonderWoman.classList.contains('hero'));
+        console.log("wonderWoman.classList.contains('villian');");
+        console.log(wonderWoman.classList.contains('villian'));
+
+        // DOM can create or remove elements dynamically
+        // createElement() takes a tag name as a parameter
+        console.log("const flash = document.createElement('li');");
+        const flash = document.createElement('li');
+
+        // .createTextNode() creates a text node
+        console.log("const flashText = document.createTextNode('Flash');");
+        const flashText = document.createTextNode('Flash');
+
+        // .appendChild() appends an element and adds a child element provided as an argument
+        console.log("flash.appendChild(flashText);");
+        console.log(flash.appendChild(flashText));
+
+        // add Flash to the roster
+        console.log("heroes.appendChild('flash');");
+        heroes.appendChild(flash);
+    </script>
 </html>
