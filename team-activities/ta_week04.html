@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <title>Team Activity: Week 04</title>
+        <style type="text/css">
+            /*body {
+                width: 100%;
+                height: 100%;
+            }*/
+            
+            body div {
+                width: 800px;
+                margin: auto;
+                text-align: center;
+            }
+
+            #gameboard {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr;
+                margin: 3em auto;
+                height: 15em;
+                width: 15em;
+            }
+
+            .cell {
+                width: 100%;
+                height: 100%;
+            }
+
+            .cell:nth-child(1n) {
+                border-right: 1px solid black;
+                border-bottom: 1px solid black;
+            }
+
+            .cell:nth-child(3n) {
+                border-right: none;
+            }
+
+            .cell:nth-child(1n+7) {
+                border-bottom:none;
+            }
+
+        </style>
+        
+    </head>
+
+    <body>
+        <div>
+            <h1>Team Activity: Week 04</h1>
+            <h2>Tic Tac Toe</h2>
+            <div id="gameboard">
+                <div class="cell" id="c0" ontouchend="play(this)"></div>
+                <div class="cell" id="c1" ontouchend="play(this)"></div>
+                <div class="cell" id="c2" ontouchend="play(this)"></div>
+                <div class="cell" id="c3" ontouchend="play(this)"></div>
+                <div class="cell" id="c4" ontouchend="play(this)"></div>
+                <div class="cell" id="c5" ontouchend="play(this)"></div>
+                <div class="cell" id="c6" ontouchend="play(this)"></div>
+                <div class="cell" id="c7" ontouchend="play(this)"></div>
+                <div class="cell" id="c8" ontouchend="play(this)"></div>
+            </div>
+            <div>
+                <p id="player_status">Player 1: You Start!</p>
+                <button id="reset" name="RESET" onclick="resetBoard()">RESET</button>
+            </div>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        const game = document.querySelectorAll('.cell');
+        const winningConditions = [
+            [0,1,2],
+            [3,4,5],
+            [6,7,8],
+            [0,3,6],
+            [1,4,7],
+            [2,5,8],
+            [2,4,6],
+            [0,4,8]
+        ]
+
+        let occupiedCells = {
+            'c0': 0,
+            'c1': 0,
+            'c2': 0,
+            'c3': 0,
+            'c4': 0,
+            'c5': 0,
+            'c6': 0,
+            'c7': 0,
+            'c8': 0
+        }
+
+        let turnsTaken = 0;
+
+        //const player1 = "X";
+        //const player2 = "O";
+
+        // set initial player
+        let player = 1;
+
+        // cycle through all cells listening for touch
+        game.forEach(element => {
+            element.addEventListener('ontouchend', play, false);
+        });
+
+        /**************************************************
+         * play()
+         * Description: if the touched cell is open, places
+         * the active players sign in the touched cell and
+         * then changes the active player
+         * player
+         * input: element
+         * return: none
+         * *************************************************/
+        function play(element) {
+            if (!element.innerHTML) {
+                element.innerHTML = getSymbol(player);
+                occupiedCells[`${element.id}.`] = player;
+                //console.log(occupiedCells);
+                changePlayer();
+                /*turnsTaken++;
+                if (turnsTaken >= 5) {
+                    checkForWin();
+                }*/
+                checkForWin();
+            }   
+        }
+
+        /*****************************************
+         * changePlayer()
+         * Description: changes the active player
+         * and player status
+         * input: none
+         * return: none
+         * ****************************************/
+        function changePlayer() {
+            console.log(player);
+            if (player == 1) {
+                player = 2;
+                document.getElementById('player_status').innerHTML = "Player 2: Your Turn!";
+            } else {
+                player = 1;
+                document.getElementById('player_status').innerHTML = "Player 1: Your Turn!";
+            }
+        }
+
+        /*****************************************
+         * getSymbol()
+         * Description: Gets the symbol for the
+         * active player
+         * input: number
+         * return: string
+         * ****************************************/
+        function getSymbol(player) {
+            if (player == 1) {
+                return 'X';
+            } else {            
+                return 'O';
+            }
+        }
+
+        /*****************************************
+         * resetBoard()
+         * Description: Resets game board and player
+         * status
+         * input: none
+         * return: none
+         * ****************************************/
+        function resetBoard() {
+            game.forEach(element => element.innerHTML = "");
+            document.getElementById('player_status').innerHTML = "Player 1: You Start!";
+            let size = Object.keys(occupiedCells);
+            for (let i = 0; i < size.length; i++) {
+                //console.log(i);
+                if (!occupiedCells[i] == 0) {
+                    occupiedCells[i] = 0;
+                }
+            }
+            
+            player = 1;
+            turnsTaken = 0;
+        }
+
+        function checkForWin() {
+            // check player locations against winning conditions
+            let playerSpaces = new Array();
+            
+            /*for (let index = 0; index < Object.keys(occupiedCells).length; index++) {
+                if (occupiedCells.[`${index}`] == player) {
+                    playerSpaces.push(1);
+                } else {
+                    playerSpaces.push(0);
+                }
+            }*/
+
+            let i = 0;
+
+            occupiedCells.forEach(oc => {
+                if (oc[`c${i}`] = player) {
+                    playerSpaces.push(1);
+                } else {
+                    playerSpaces.push(0);
+                }
+            });
+
+            if (playerSpaces[winningConditions[0,0]] ==  playerSpaces[winningConditions[0,1]] == playerSpaces[winningConditions[0,0]]) {
+                document.getElementById('player_status').innerHTML = `Player ${player}: Wins!!!`;
+            }
+        }
+    </script>
+</html>
