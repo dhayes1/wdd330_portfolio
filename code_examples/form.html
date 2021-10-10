@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <title>WDD330 - Form Code Example</title>
+        <style type="text/css">
+        
+        </style>
+    </head>
+
+    <body>
+        <form>
+            <div id="first-name">
+                <label for="first_name">First Name:</label>
+                <input name="first_name" type="text" id="first" placeholder="Enter first name" required>
+            </div>
+            <div id="last-name">
+                <label for="last_name">Last Name:</label>
+                <input name="last_name" type="text" id="last" placeholder="Enter last name" required>
+            </div>
+            <div id="age">
+                <label for="age">Age:</label>
+                <input name="age" type="number" id="age" value=0>
+            </div>
+            <div id="gender">
+                <label for="gender">Gender:</label>
+                <input name="gender" type="radio" value="M" id="male">M</input>
+                <input name="gender" type="radio" value="F" id="female">F</input>
+            </div>
+            <div id="street-address">
+                <label for="street_address">Address:</label>
+                <input name="street_address" type="text" id="address" placeholder="Enter street address">
+            </div>
+            <div id="city">
+                <label for="city">City:</label>
+                <input name="city" type="text" id="city" placeholder="Enter city">
+            </div>
+            <div id="state">
+                <label for="state">State:</label>
+                <input name="state" type="text" id="state" placeholder="Enter state">
+            </div>
+            <div id="postal-code">
+                <label for="postal_code">Postal Code:</label>
+                <input name="postal_code" type="text" id="postal-code" placeholder="Enter postal code">
+            </div>
+            <div id="phone">
+                <label for="phone">Phone Number:</label>
+                <input name="phone" type="text" id="phone" placeholder="XXX-XXX-XXXX">
+            </div>
+            <div id="comments">
+                <label for="comments">Comments:</label>
+                <textarea name="comments" type="text" id="comments"></textarea>
+            </div>
+            <div id="buttons">
+                <button class="btn-find" name="btn_find">Find</button>
+                <button class="btn-cancel" name="btn_cancel">Cancel</button>
+                <button class="btn-submit" name="btn_submit" onclick="submitPerson()">Submit</button>
+            </div>
+        </form>
+        <div id="results"></div>
+    </body>
+
+    <script type="text/javascript">
+        class Address {
+            constructor() {
+                this.streetAddress = '';
+                this.city = '';
+                this.state = '';
+                this.postalCode = '';
+            }
+
+            setAddress(address) { this.streetAddress = address; }
+            setCity(city) { this.city = city; }
+            setState(state) { this.state = state; }
+            setPostalCode(postalCode) { this.postalCode = postalCode; }
+
+            getAddress() { return streetAddress; }
+            getCity() { return city; }
+            getState() { return state; }
+            getPostalCode() { return postalCode; }
+        };
+
+        class Person {
+            constructor (first, last, age) {
+                this.first = first;
+                this.last = last;
+                this.age = age;
+                this.address = new Address();
+                this.phone = '';
+                this.gender = '';
+            }
+
+            setAge(age) { this.age = age; }
+            setPhone(phone) { this.phone = phone; }
+            setGender(gender) { this.gender = gender; }
+
+            getName() { return `${first} ${last}`; }
+            getNameRev() { return `${last} ${first}`; }
+            getAge() { return age; }
+            getPhone() { return phone; }
+            getGender() { return gender; }
+        };
+
+        const btnSubmit = document.querySelector('.btn-submit');
+        const btnCancel = document.getElementsByName('btn_cancel');
+        const btnFind = document.getElementsByName('btn_find');
+
+        //document.querySelector('.btn-submit').eventListener('click', submitPerson);
+        //btnCancel.eventListener('click', cancelPerson);
+        //btnFind.eventListener('click', findPerson)
+
+        let singlePerson = new Object();
+        let people = [];
+
+
+        function submitPerson() {
+            const nameFirst = form.first.value;
+            const nameLast = form.last.value;
+            const age = form.age.value;
+            
+            const person = new Person(nameFirst, nameLast, age);
+
+            if (forms.address.value) {
+                person.address.setAddress(forms.address.value);
+            }
+
+            if (forms.city.value) {
+                person.address.setCity(forms.city.value);
+            }
+
+            people.push(person);
+        }
+
+        function cancelPerson() {
+
+        }
+
+        function findPerson() {
+
+        }
+
+    </script>
+</html>
