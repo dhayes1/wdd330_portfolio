@@ -9,8 +9,6 @@ class Hikes{
       this.description = _description;
       this.directions = _directions;
     }
-
-    get name() = { return this.name; }
 }
 
 export default class {Hikes};
