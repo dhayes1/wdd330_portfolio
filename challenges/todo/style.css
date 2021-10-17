@@ -1,0 +1,33 @@
+body {
+    width: 350px;
+    align-content: center;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+}
+
+#todo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 40px;
+}
+
+.completed, .btn-delete, .btn-add {
+    height: 32px;
+    width: 32 px;
+    border: 1px solid black;
+}
+
+.btn-delete {
+    border: none;
+}
+
+.task {
+    height: 32px;
+    width: 260px;
+    padding-left: 5px;
+    align-content: center;
+}
