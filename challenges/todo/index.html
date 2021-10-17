@@ -4,33 +4,46 @@
         <meta charset="utf-8" />
         <meta name="veiwport" content="width=device-width initial-scale=1.0" />
         <title>TODO List</title>
-        <style rel="stylesheet" type="css/text" href="style.css"></style>
+        <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
-        <section id="title">
+        <div class="flexbox-container">
             <h1>Todos</h1>
-        </section>
-        <section id="tasks">
-            <ul id="task-list">
-                <li class="todo">
-                    <input class="completed" type="checkbox">
-                    <p class="task">Task</p>
-                    <button class="button btn-delete">X</button>
-                </li>
-            </ul>
-            <section id="filters">
-                <div>
-                    <div id="status"></div>
-                    <button class="button btn-filter" name="btn-all">All</button>
-                    <button class="button btn-filter" name="btn-active">Active</button>
-                    <button class="button btn-filter" name="btn-completed">Completed</button>
+            <div id="tasks">
+                <ul id="task-list">
+                    <li class="module todo">
+                        <button class="button" id="btn-complete" name="btn-complete"></button>
+                        <p class="task">Task</p>
+                        <button class="button" id="btn-delete">X</button>
+                    </li>
+                    <li class="module todo">
+                        <button class="button" id="btn-complete" name="btn-complete"></button>
+                        <p class="task">Task</p>
+                        <button class="button" id="btn-delete">X</button>
+                    </li>
+                    <li class="module todo">
+                        <button class="button" id="btn-complete" name="btn-complete"></button>
+                        <p class="task">Task</p>
+                        <button class="button" id="btn-delete">X</button>
+                    </li>
+                    <li class="module todo">
+                        <button class="button" id="btn-complete" name="btn-complete"></button>
+                        <p class="task">Task</p>
+                        <button class="button" id="btn-delete">X</button>
+                    </li>
+                </ul>
+                <div class="module" id="filters">
+                    <div id="status">1 task left</div>
+                    <button class="button btn-filter" id="btn-fltr-all" name="btn-fltr-all">All</button>
+                    <button class="button btn-filter" id="btn-fltr-active" name="btn-fltr-active">Active</button>
+                    <button class="button btn-filter" id="btn-fltr-completed" name="btn-fltr-completed">Completed</button>
                 </div>
-            </section>
-        </section>
-        <section id="add-task">
-            <input type="text" name="new-task">
-            <button class="button btn-add" name="btn-add">+</button>
-        </section>
+            </div>
+            <div class="module" id="task-add">
+                <input id="add-task" type="text" name="new-task" placeholder="Enter task name">
+                <button class="button" id="btn-add" name="btn-add">+</button>
+            </div>
+        </div>
     </body>
     <script type="module" src="main.js"></script>
 </html>
