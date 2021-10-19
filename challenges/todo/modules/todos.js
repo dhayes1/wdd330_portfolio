@@ -3,10 +3,10 @@ import { qs } from './utilities.js'
 
 export default class Todos {
     /** @constructs */
-    constructor () {
-        let content;
-        let id;
-        let checked;
+    constructor (_content) {
+        this.content = _content;
+        let id = Date.now();
+        this.checked = false;
     }
 
     // methods
@@ -19,7 +19,7 @@ export default class Todos {
     }
 
     addTodo() {
-        
+        writeToLS(key, todoList);
     }
 
     filterTodos() {
@@ -46,7 +46,7 @@ function saveTodo(task, key) {
         todoList = [todo];
     }
 
-    writeToLS(key, todoList);
+    todo.addTodo;
 }
 
 /** check the contents of todoList, a local variable containing a list of ToDos. If it is null then pull the list of todos from localstorage, update the local variable, and return it
