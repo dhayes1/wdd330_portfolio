@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="veiwport" content="width=device-width initial-scale=1.0" />
+        <title>TODO List</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <div class="flexbox-container">
+            <h1>Todos</h1>
+            <div id="tasks">
+                <ul id="task-list">
+                    <li class="module todo">
+                        <button class="button" id="btn-complete" name="btn-complete"></button>
+                        <p class="task">Task</p>
+                        <button class="button" id="btn-delete">X</button>
+                    </li>
+                </ul>
+                <div class="module" id="filters">
+                    <div id="status">1 task left</div>
+                    <button class="button btn-filter" id="btn-fltr-all" name="btn-fltr-all">All</button>
+                    <button class="button btn-filter" id="btn-fltr-active" name="btn-fltr-active">Active</button>
+                    <button class="button btn-filter" id="btn-fltr-completed" name="btn-fltr-completed">Completed</button>
+                </div>
+            </div>
+            <div class="module" id="task-add">
+                <input id="add-task" type="text" name="new-task" placeholder="Enter task name">
+                <button class="button" id="btn-add" name="btn-add">+</button>
+            </div>
+        </div>
+    </body>
+    <script type="module" src="main.js"></script>
+</html>
