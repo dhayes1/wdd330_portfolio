@@ -34,5 +34,5 @@ function filterCompleted() {
 }
 
 function addTask() {
-
+    saveTodo(qs('#add-task').value, 'myTodos');
 }

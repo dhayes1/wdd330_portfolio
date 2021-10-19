@@ -46,7 +46,7 @@ function saveTodo(task, key) {
         todoList = [todo];
     }
 
-    writeToLS('myTodos', todoList);
+    writeToLS(key, todoList);
 }
 
 /** check the contents of todoList, a local variable containing a list of ToDos. If it is null then pull the list of todos from localstorage, update the local variable, and return it
