@@ -3,10 +3,9 @@
  * @return {array} The value as an array of objects */
 function readFromLS(key) {
     if (localStorage.getItem(key)) {
-        const taskArray = [];
         const lsText = localStorage.getItem(key);
 
-        taskArray = JSON.parse(lsText);
+        const taskArray = [JSON.parse(lsText)];
         
         return taskArray;
     } else {

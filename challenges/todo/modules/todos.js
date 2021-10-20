@@ -5,7 +5,7 @@ export default class Todos {
     /** @constructs */
     constructor (_content) {
         this.content = _content;
-        let id = Date.now();
+        this.id = Date.now();
         this.checked = false;
     }
 
@@ -19,7 +19,9 @@ export default class Todos {
     }
 
     addTodo() {
-        writeToLS(key, todoList);
+        writeToLS('myTodos', todoList);
+        alert('write complete');
+        console.log(todoList);
     }
 
     filterTodos() {
@@ -41,12 +43,16 @@ function saveTodo(task, key) {
     const todo = new Todos(task);
 
     if (todoList) {
-        todoList.push(todo);
+        if (todoList[0] == null) {
+            todoList = [todo];
+        } else {
+            todoList.push(todo);
+        }
     } else {
         todoList = [todo];
     }
 
-    todo.addTodo;
+    todo.addTodo();
 }
 
 /** check the contents of todoList, a local variable containing a list of ToDos. If it is null then pull the list of todos from localstorage, update the local variable, and return it
