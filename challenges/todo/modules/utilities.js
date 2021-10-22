@@ -13,4 +13,8 @@ function onTouch(elementSelector, callback) {
     elementSelector.addEventListener('touchend', callback);
 }
 
-export { qs, onTouch }
+function dc(element) {
+    return document.createElement(element);
+}
+
+export { qs, onTouch, dc }
