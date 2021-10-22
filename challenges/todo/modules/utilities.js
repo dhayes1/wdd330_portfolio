@@ -12,3 +12,5 @@ function qs(selector) {
 function onTouch(elementSelector, callback) { 
     elementSelector.addEventListener('touchend', callback);
 }
+
+export { qs, onTouch }
