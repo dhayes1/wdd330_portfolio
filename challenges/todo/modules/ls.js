@@ -16,3 +16,5 @@ function readFromLS(key) {
 function writeToLS(key, data) { 
     localStorage.setItem(key, JSON.stringify(data));
 }
+
+export { readFromLS, writeToLS }
