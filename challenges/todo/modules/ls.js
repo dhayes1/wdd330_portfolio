@@ -3,10 +3,16 @@
  * @param {string} key The key under which the value is stored under in LS
  * @return {array} The value as an array of objects */
 function readFromLS(key) { 
-    const todoArray = [];
+    let todoArray = [];
 
-    todoArray = localStorage.getItem(JSON.parse(key));
+    //TODO: test functionality. What happens if there is no todos?
+    // might need to play with if todoArray === null
+    //const todos = localStorage.getItem(key);
 
+    if (localStorage.getItem(key) !== null) {
+        todoArray = JSON.parse(localStorage.getItem(key));
+    }
+    
     return todoArray;
 }
 
