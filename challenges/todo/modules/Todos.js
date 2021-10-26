@@ -174,6 +174,9 @@ function renderTodoList(list, element) {
         btnDelete.id = 'btn-delete';
         btnDelete.name = 'btn-delete';
         btnDelete.innerHTML = 'X';
+        btnDelete.addEventListener('click', function() {
+            this.removeTodo(e).bind(this);
+        });
         
         li.appendChild(btnCompleted);
         li.appendChild(taskName);
