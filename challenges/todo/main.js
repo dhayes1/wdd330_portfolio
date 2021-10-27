@@ -1,4 +1,4 @@
-import Todos from "./modules/Todos.js";
+import Todos from "./modules/todos.js";
 
 //window.addEventListener('load', main);
 const tasks = new Todos();
