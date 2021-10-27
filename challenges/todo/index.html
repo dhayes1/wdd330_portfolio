@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width initial-scale=1.0" />
+      <title>TODO Challenge</title>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <section class="title">
+      <h2>TODOs</h2>
+    </section>
+    <section class="tasks-list">
+      <ul class="tasks">
+        <li class="task" taskID="element">
+          <button class="button completed-button"></button>
+          <p class="task-content">Task Content</p>
+          <button class="button remove-button">X</button>
+        </li>
+        <li class="task" taskID="element">
+          <button class="button completed-button"></button>
+          <p class="task-content">Task Content</p>
+          <button class="button remove-button">X</button>
+        </li>
+        <li class="task" taskID="element">
+          <button class="button completed-button"></button>
+          <p class="task-content">Task Content</p>
+          <button class="button remove-button">X</button>
+        </li>
+        <li class="task" taskID="element">
+          <button class="button completed-button">X</button>
+          <p class="task-content completed">Task Content</p>
+          <button class="button remove-button">X</button>
+        </li>
+      </ul>
+    </section>
+    <section class="filters">
+      <p id="total_tasks">0 tasks</p>
+      <button class="button button-filter" id="button_all" name="btnAll">All</button>
+      <button class="button button-filter" id="button_active" name="btnActive">Active</button>
+      <button class="button button-filter" id="button_complete" name="btnComplete">Complete</button>
+    </section>
+    <section class="new-task">
+      <input id="new_task" type="text" placeholder="Enter new task...">
+      <button class="button add-task-button" id="button_add" name="btnAdd">+</button>
+    </section>
+    <section class="footer">
+      <p>Created by: DONNY HAYES</p>
+    </section>
+  </body>
+  <script src="main.js" type="module"></script>
+</html>

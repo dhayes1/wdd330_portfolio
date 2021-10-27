@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <title>TODO Challenge</title>
+        <link type="css/text" href="style.css" />
+    </head>
+    <body>
+        <section class="title">
+            <h2>TODOs</h2>
+        </section>
+        <section class="todo-list">
+            <ul class="tasks">
+                <li id="task">
+                    <button class="button completed-button"></button>
+                    <p class="task-content">Task Content</p>
+                    <button class="button remove-button">X</button>
+                </li>
+            </ul>
+        </section>
+        <section class="filters">
+            <div>
+                <p>0 tasks remain</p>
+                <button class="button filter-button" id="button_all" name="btnAll">All</button>
+                <button class="button filter-button" id="button_active" name="btnActive">Active</button>
+                <button class="button filter-button" id="button_complete" name="btnComplete">Complete</button>
+            </div>
+        </section>
+        <section class="new-task">
+            <input id="new_task" type="text" placeholder="Enter new task...">
+            <button class="button add-task-button" id="button_add" name="btnAdd">+</button>
+        </section>
+
+        <script type="module" src="main.js"></script>
+    </body>
+</html>
