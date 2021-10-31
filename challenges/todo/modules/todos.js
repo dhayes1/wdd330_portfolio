@@ -24,39 +24,50 @@ export default class Todos {
     }
 
     removeTodo(event) {
-        console.log(this);
+        //console.log(this);
         let task = JSON.parse(event.parentElement.id);
-        console.log(task.id);
+        //console.log(task.id);
         
-        console.log(todoList.includes(event.parentElement.id, 0));
-        let found = false;
-        const index = todoList.findIndex(function(){
-            for(let i = 0; i <= todoList.length; i++) {
-                if (todoList[i].id == task.id) {
-                    return i;
-                }
-            }
-        });
+        //console.log(todoList.includes(event.parentElement.id, 0));
 
+        // findIndex will loop through the array and return the first index
+        // to match the conditional test. Will return -1 if not found
+        const index = todoList.findIndex(obj => obj.id === task.id)
+        
         if (index >= 0) {
             todoList.splice(index, 1);
         }
-        console.log(index);
+        
+        //console.log(index);
 
+        // save changes to array in localStorage
         writeToLS(this.key, todoList);
         
         this.listTodos();
     }
 
     completeTodo(event) {
-        console.log('complete selected');
-        console.log(this);
-        console.log(event.parentElement.id);
+        //console.log('complete selected');
+        //console.log(this);
+        //console.log(event.parentElement.id);
         // find selected task
+        let task = JSON.parse(event.parentElement.id);
+        const index = todoList.findIndex(obj => obj.id === task.id);
+
+        if (index >= 0) {
+            todoList[index].completed = !todoList[index].completed;
+        }
 
         // update task to complete
+        if (event.innerHTML == '') {
+            event.innerHTML = 'X';
+        } else {
+            event.innerHTML = '';
+        }
+        event.nextSibling.classList.toggle('completed');
 
-        // list todos based on filter
+        // save changes to array in localStorage
+        writeToLS(this.key, todoList)
     }
 
     listTodos() {
@@ -65,45 +76,29 @@ export default class Todos {
         renderTodoList(todoList,this.element);
         
         const tasksLeft = qs('#total_tasks');
-        tasksLeft.innerHTML = `${todoList.length} tasks left`;
+        tasksLeft.innerHTML = `${this.numberOfTodos('all').length} tasks`;
 
-        const button = document.querySelectorAll('.button');
-        button.forEach(btn => {
-            if (btn.id == 'completed-button') {
-                btn.addEventListener('click', (event) => this.completeTodo(event.target));
-            } else if (btn.id == 'remove-button') {
-                btn.addEventListener('click', (event) => this.removeTodo(event.target));
-            }
-        });
+        this.addEL();
     }
     
 
-    filterTodo(element) {
-        console.log('Filter Clicked');
+    filterTodo(event) {
         console.log(this);
+        console.log(event);
+
+        // TODO: change "this" to "event" to look at the buttons
         if (this.innerHTML == 'All') {
-            console.log('Filter all clicked');
-            renderTodoList(todoList, this.element);
+            renderTodoList(this.numberOfTodos('all'), qs('.tasks'));
+            const tasksLeft = qs('#total_tasks');
+            tasksLeft.innerHTML = `${this.numberOfTodos('all').length} tasks`;
         } else if (this.innerHTML == 'Active') {
-            console.log('Filter active clicked');
-            const activeTasks = [];
-            todoList.forEach(task => {
-                if (!task.completed) {
-                    activeTasks.push(task);
-                }
-            });
-
-            renderTodoList(activeTasks, this.element);
-        } else if (this.innerHTML == 'Completed') {
-            console.log('Filter completed clicked');
-            const completedTasks = [];
-            todoList.forEach(task => {
-                if (task.completed) {
-                    completedTasks.push(task);
-                }
-            });
-
-            renderTodoList(completedTasks, this.element);
+            renderTodoList(this.numberOfTodos('active'), qs('.tasks'));
+            const tasksLeft = qs('#total_tasks');
+            tasksLeft.innerHTML = `${this.numberOfTodos('active').length} tasks`;
+        } else if (this.innerHTML == 'Complete') {            
+            renderTodoList(this.numberOfTodos('completed'), qs('.tasks'));
+            const tasksLeft = qs('#total_tasks');
+            tasksLeft.innerHTML = `${this.numberOfTodos('completed').length} tasks`;
         } else {
             console.log('Something went wrong!');
         }
@@ -113,10 +108,40 @@ export default class Todos {
         // update list based on selected filter
     }
 
+    addEL() {;
+        const button = document.querySelectorAll('.button');
+        button.forEach(btn => {
+            //let btnClassList = btn.classList;
+            if (btn.id == 'completed-button') {
+                btn.addEventListener('click', (event) => this.completeTodo(event.target));
+            } else if (btn.id == 'remove-button') {
+                btn.addEventListener('click', (event) => this.removeTodo(event.target));
+            } else if (btn.classList.contains('filter-button')) {
+                btn.addEventListener('click', (event) => this.filterTodo(event.target));
+            } else if (btn.id == 'button_add') {
+                btn.addEventListener('click', this.removeTodo);
+            } else {
+                console.log(`You need to add a conditional statemnet for ${btn} class or id!`);
+            }
+        });
+    }
 
+    numberOfTodos(filter = null) {
+        switch (filter) {
+            case 'all':
+                return todoList;
+            case 'active':
+                return todoList.filter(obj => obj.completed === false);
+            case 'completed':
+                return todoList.filter(obj => obj.completed === true);
+            default:
+                return todoList;
+        }
+    }
 }
 
 let todoList = null;
+let activeFilter = 'all';
 
 /** 
  * 
@@ -167,10 +192,17 @@ function renderTodoList(list, element) {
         btnCompleted.className = 'button completed-button';
         btnCompleted.id = 'completed-button';
         btnCompleted.name = 'btnComplete';
+        if (e.completed) {
+            btnCompleted.innerHTML = 'X';
+        }
 
         // create task name element
         const taskName = dc('p');
-        taskName.className = 'task-content';
+        if (e.completed) {
+            taskName.className = 'task-content completed';
+        } else {
+            taskName.className = 'task-content';
+        }
         taskName.innerHTML = e.content;
 
         // create delete button element

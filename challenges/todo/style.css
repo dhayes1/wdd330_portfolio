@@ -66,6 +66,10 @@ h2 {
   margin-right: 10px;
 }
 
+.remove-button:hover{
+  font-size: 28px;
+}
+
 .completed-button {
   text-align: center;
   font-size: 25px;
@@ -95,7 +99,7 @@ h2 {
   text-align: center;
 }
 
-.button-filter {
+.filter-button {
   margin: auto 5px;
 }
 
@@ -133,6 +137,21 @@ h2 {
 #button_add {
   margin-right: 10px;
 }
+
+.completed-button:hover,
+#button_all:hover,
+#button_active:hover,
+#button_complete:hover,
+#button_add:hover {
+  background-color: rgba(171, 247, 209, 0.411);
+}
+
+#button_all:active,
+#button_active:active,
+#button_complete:active {
+  background-color: rgba(171, 247, 209, 0.411);
+}
+
 
 .footer {
   width: 100%;
