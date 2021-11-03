@@ -146,9 +146,7 @@ h2 {
   background-color: rgba(171, 247, 209, 0.411);
 }
 
-#button_all:active,
-#button_active:active,
-#button_complete:active {
+.activeFilter {
   background-color: rgba(171, 247, 209, 0.411);
 }
 

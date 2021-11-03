@@ -6,6 +6,7 @@ export default class Todos {
         this.element = qs('.tasks');
         this.key = 'myTodos';
 
+        getTodos();
         this.listTodos();
     }
 
@@ -37,8 +38,6 @@ export default class Todos {
         if (index >= 0) {
             todoList.splice(index, 1);
         }
-        
-        //console.log(index);
 
         // save changes to array in localStorage
         writeToLS(this.key, todoList);
@@ -47,9 +46,6 @@ export default class Todos {
     }
 
     completeTodo(event) {
-        //console.log('complete selected');
-        //console.log(this);
-        //console.log(event.parentElement.id);
         // find selected task
         let task = JSON.parse(event.parentElement.id);
         const index = todoList.findIndex(obj => obj.id === task.id);
@@ -68,48 +64,42 @@ export default class Todos {
 
         // save changes to array in localStorage
         writeToLS(this.key, todoList)
+
+        // update list based on active filter
     }
 
-    listTodos() {
-        getTodos(this.key);
-
-        renderTodoList(todoList,this.element);
+    listTodos(list = todoList) {
+        renderTodoList(list,this.element);
         
         const tasksLeft = qs('#total_tasks');
-        tasksLeft.innerHTML = `${this.numberOfTodos('all').length} tasks`;
+        tasksLeft.innerHTML = `${list.length} tasks`;
 
+        // add eventListeners to the button elements
         this.addEL();
     }
     
 
     filterTodo(event) {
-        console.log(this);
-        console.log(event);
+        const tasksLeft = qs('#total_tasks');
+        const activeEvent = event.innerHTML;
+        currentFilter = activeEvent;
 
-        // TODO: change "this" to "event" to look at the buttons
-        if (this.innerHTML == 'All') {
-            renderTodoList(this.numberOfTodos('all'), qs('.tasks'));
-            const tasksLeft = qs('#total_tasks');
-            tasksLeft.innerHTML = `${this.numberOfTodos('all').length} tasks`;
-        } else if (this.innerHTML == 'Active') {
-            renderTodoList(this.numberOfTodos('active'), qs('.tasks'));
-            const tasksLeft = qs('#total_tasks');
-            tasksLeft.innerHTML = `${this.numberOfTodos('active').length} tasks`;
-        } else if (this.innerHTML == 'Complete') {            
-            renderTodoList(this.numberOfTodos('completed'), qs('.tasks'));
-            const tasksLeft = qs('#total_tasks');
-            tasksLeft.innerHTML = `${this.numberOfTodos('completed').length} tasks`;
+        if (activeEvent == 'All') {
+            this.listTodos(todoList);
+        } else if (activeEvent == 'Active') {
+            const activeTodos = todoList.filter(obj => obj.completed === false);
+            this.listTodos(activeTodos);
+        } else if (activeEvent == 'Complete') { 
+            const completedTodos = todoList.filter(obj => obj.completed === true)           
+            this.listTodos(completedTodos);
         } else {
             console.log('Something went wrong!');
         }
-
-        // get selected filter
-
-        // update list based on selected filter
     }
 
     addEL() {;
         const button = document.querySelectorAll('.button');
+
         button.forEach(btn => {
             //let btnClassList = btn.classList;
             if (btn.id == 'completed-button') {
@@ -118,6 +108,11 @@ export default class Todos {
                 btn.addEventListener('click', (event) => this.removeTodo(event.target));
             } else if (btn.classList.contains('filter-button')) {
                 btn.addEventListener('click', (event) => this.filterTodo(event.target));
+                if (btn.innerHTML === currentFilter) {
+                    btn.classList.add('activeFilter');
+                } else {
+                    btn.classList.remove('activeFilter');
+                }
             } else if (btn.id == 'button_add') {
                 btn.addEventListener('click', this.removeTodo);
             } else {
@@ -125,23 +120,10 @@ export default class Todos {
             }
         });
     }
-
-    numberOfTodos(filter = null) {
-        switch (filter) {
-            case 'all':
-                return todoList;
-            case 'active':
-                return todoList.filter(obj => obj.completed === false);
-            case 'completed':
-                return todoList.filter(obj => obj.completed === true);
-            default:
-                return todoList;
-        }
-    }
 }
 
 let todoList = null;
-let activeFilter = 'all';
+let currentFilter = 'All';
 
 /** 
  * 
