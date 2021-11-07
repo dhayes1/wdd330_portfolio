@@ -81,7 +81,7 @@ function showPeopleList(data) {
   
 function renderPeopleList(people, parent) {
     people.forEach(person => {
-        parent.appendChild(renderOnePerson(person));;
+        parent.appendChild(renderOnePerson(person));
     });
 }
   
