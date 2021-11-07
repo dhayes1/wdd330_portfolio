@@ -1,0 +1,53 @@
+@media (max-width: 380px){
+
+    h1{
+        text-align: center;
+        text-decoration: underline blue;
+    }
+    
+    li {
+        list-style: none;
+        text-align: center;
+        color: rgb(187, 187, 24);
+    }
+    
+    #buttonContainer{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+    }
+    
+    #next{
+        float: right;
+    }
+    
+    #prev{
+        float: left;
+    }
+
+}
+
+h1{
+    text-align: center;
+    text-decoration: underline blue;
+}
+
+li {
+    list-style: none;
+    text-align: center;
+    color: rgb(187, 187, 24);
+}
+
+#buttonContainer{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+#next{
+    float: right;
+}
+
+#prev{
+    float: left;
+}
