@@ -1,7 +1,7 @@
 var jsonData;
 
 window.addEventListener("load", () => {
-    fetch('https://swapi.dev/api/people/')
+    fetch('http://swapi.dev/api/people/')
         .then(response => response.json())
         .then(data => load(data));
 });
