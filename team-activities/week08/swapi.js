@@ -1,7 +1,7 @@
 var jsonData;
 
 window.addEventListener("load", () => {
-    fetch('http https://swapi.dev/api/people/')
+    fetch('https://swapi.dev/api/people/')
         .then(response => response.json())
         .then(data => load(data));
 });
@@ -44,7 +44,7 @@ function buttonMaker(){
 }
 
 function numberButton(button){
-    fetch('http://swapi.dev/api/people/?page=' + button.innerHTML)
+    fetch('https://swapi.dev/api/people/?page=' + button.innerHTML)
         .then(response => response.json())
         .then(data => load(data));
 }
