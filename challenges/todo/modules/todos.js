@@ -18,14 +18,14 @@ export default class Todos {
         saveTodo(task.value, this.key)
         
         // refresh todo list
-        this.listTodos();
+        this.listTodos(todoList);
 
         // clear task text box
         task.value = '';        
     }
 
     removeTodo(event) {
-        //console.log(this);
+        //console.log(event);
         let task = JSON.parse(event.parentElement.id);
         //console.log(task.id);
         
@@ -64,8 +64,6 @@ export default class Todos {
 
         // save changes to array in localStorage
         writeToLS(this.key, todoList)
-
-        // update list based on active filter
     }
 
     listTodos(list = todoList) {
@@ -80,6 +78,7 @@ export default class Todos {
     
 
     filterTodo(event) {
+        console.log(event);
         const tasksLeft = qs('#total_tasks');
         const activeEvent = event.innerHTML;
         currentFilter = activeEvent;
@@ -114,7 +113,7 @@ export default class Todos {
                     btn.classList.remove('activeFilter');
                 }
             } else if (btn.id == 'button_add') {
-                btn.addEventListener('click', this.removeTodo);
+                btn.addEventListener('click', this.addTodo.bind(this));
             } else {
                 console.log(`You need to add a conditional statemnet for ${btn} class or id!`);
             }
