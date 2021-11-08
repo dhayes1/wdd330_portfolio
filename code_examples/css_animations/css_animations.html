@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            .parent,
+            .parent2 {
+                background-color: hsla(200, 100%, 20%);
+                height: 400px;
+                width: 400px;
+            }
+
+            .child,
+            .child2 {
+                background-color: red;
+                height: 50%;
+                width: 50%;
+                /*transition: transform 1s ease-in;*/
+            }
+
+            .child {
+                animation: left-to-right 1s ease-in forwards infinite alternate;
+            }
+
+            .child2 {
+                transform-origin: bottom right;
+                /*transition: transform 2s linear;*/
+
+                animation: full-rotate 1s linear infinite;
+            }
+
+            .parent:hover .child {
+                /*transform: translateX(100%);*/
+
+                /* forwards keeps the animation from going back to 0%
+                 * when completed */
+                /* 3 is the iteration amount */
+                /* alternate is the direction of play */
+                /*animation: left-to-right 1s ease-in forwards 3 alternate;*/
+
+                animation-play-state: paused;
+            }
+
+            .parent2:hover .child2 {
+                animation-play-state: paused;
+            }
+
+            @keyframes full-rotate {
+                0% {
+                    background-color: red;
+                }
+                100% {
+                    background-color: blue;
+                    transform: rotate(720deg);
+                }
+            }
+
+            @keyframes left-to-right {
+                0% {
+                    background-color: red;
+                    transform: translateX(0%);
+                }
+
+                33% {
+                    transform: translateY(100%);
+                }
+                
+                66% {
+                    transform: translateX(100%) translateY(100%);
+                }
+
+                100% {
+                    background-color: green;
+                    transform: translateX(100%);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="parent">
+            <div class="child"></div>
+        </div>
+        <div class="parent2">
+            <div class="child2"></div>
+        </div>
+    </body>
+</html>
