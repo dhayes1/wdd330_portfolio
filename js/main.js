@@ -1,5 +1,9 @@
 // create table of contents list array
 const data = [
+      // must include new objects in curly brackets
+    /*{                       
+      
+     }*/
     {
       label: "Week 01",
       url: "week01/index.html"
@@ -27,11 +31,11 @@ const data = [
     {
       label: "Week 08",
       url: "week08/index.html"
+    },
+    {
+      label: "Week 09",
+      url: "week09/index.html"
     }
-    // must include new objects in curly brackets
-    /*{                       
-      
-     }*/
   ];
   
   // get ol tag for list (must be loaded or will cause errors)
