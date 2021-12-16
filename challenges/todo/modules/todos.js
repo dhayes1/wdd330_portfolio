@@ -21,7 +21,7 @@ export default class Todos {
         this.listTodos(todoList);
 
         // clear task text box
-        task.value = '';        
+        task.value = '';       
     }
 
     removeTodo(event) {
