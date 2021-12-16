@@ -35,6 +35,14 @@ const data = [
     {
       label: "Week 09",
       url: "week09/index.html"
+    },
+    {
+      label: "Week 11",
+      url: "week11/index.html"
+    },
+    {
+      label: "week 14",
+      url: "Week14/index.html"
     }
   ];
   
